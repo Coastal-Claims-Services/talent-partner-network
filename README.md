@@ -1,73 +1,122 @@
-# Welcome to your Lovable project
+# Coastal Claims Connect - Talent Partner Network
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/24259ec7-8296-4810-bded-42dfa7799071
+This repository contains the **Talent Partner Network** system for Coastal Claims Services, providing comprehensive multi-state license tracking, partner management, and deployment coordination.
 
-## How can I edit this code?
+## Recent Updates (October 2025)
 
-There are several ways of editing your application.
+### Enhanced Talent Partner Network (`TalentPartnerNetwork.tsx`)
+The original 470-line `Talent.tsx` has been significantly expanded to 1,787 lines with enterprise-grade features:
 
-**Use Lovable**
+#### New Features Added:
+- **Multi-State License Tracking**: Track adjuster licenses across all 50 states + DC with expiration monitoring
+- **Advanced Filtering System**: 
+  - Filter by multiple states (must be licensed in ALL selected)
+  - Current location filtering
+  - Availability status (Available, Deployed, Unavailable)
+  - License status (Active, Expiring, Expired)
+  - Specializations (Property, Auto, Catastrophe, etc.)
+- **Multiple View Modes**:
+  - **States View**: Geographic overview with resource counts per state
+  - **Adjusters View**: Card-based adjuster directory
+  - **Partners View**: External partner/vendor management
+  - **Combined View**: Detailed list with all resources
+  - **Deployment View**: Real-time deployment dashboard
+- **Partner Registration**: 8-step registration workflow for new partners
+- **Deployment Management**: Deploy adjusters to specific states with license verification
+- **Real-time Statistics**: Dashboard metrics for coverage, capacity, and alerts
+- **Role-Based Access**: Admin controls for sensitive operations
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/24259ec7-8296-4810-bded-42dfa7799071) and start prompting.
+#### New Components Added:
+Located in `/src/components/talent-partner-network/`:
+- `PartnerRegistration.tsx` - Multi-step partner onboarding workflow
+- `AdjusterOnboarding.tsx` - Adjuster registration and license management
+- `AdminApproval.tsx` - Admin approval interface for new registrations
+- `AnalyticsDashboard.tsx` - Analytics and reporting dashboard
+- `PartnerProfile.tsx` - Detailed partner profile views
 
-Changes made via Lovable will be committed automatically to this repo.
+#### Data Models:
+- **Adjuster**: Internal adjusters with multi-state licenses, specializations, availability
+- **Partner**: External vendors with service areas, capacity tracking, contract status
+- **License**: State-specific licenses with expiration tracking and status monitoring
 
-**Use your preferred IDE**
+#### Backend Integration:
+- MongoDB database connection via `/api/talent/adjusters` and `/api/talent/partners`
+- Real-time data synchronization
+- Mock data generators for development/testing
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Technologies Used
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Frontend**: React + TypeScript + Vite
+- **UI Components**: shadcn-ui + Tailwind CSS
+- **Icons**: Lucide React
+- **Database**: MongoDB (via backend API)
+- **Routing**: React Router v6
+- **State Management**: React Context API
 
-Follow these steps:
+## Installation & Setup
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/Coastal-Claims-Services/coastal-claims-connect.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to project directory
+cd coastal-claims-connect
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a `.env` file in the root directory:
 
-**Use GitHub Codespaces**
+```env
+VITE_API_URL=http://localhost:4000
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── pages/
+│   ├── Talent.tsx (Legacy - 470 lines)
+│   └── TalentPartnerNetwork.tsx (Enhanced - 1,787 lines)
+├── components/
+│   ├── talent-partner-network/
+│   │   ├── PartnerRegistration.tsx
+│   │   ├── AdjusterOnboarding.tsx
+│   │   ├── AdminApproval.tsx
+│   │   ├── AnalyticsDashboard.tsx
+│   │   └── PartnerProfile.tsx
+│   └── ExternalPartners.tsx
+```
 
-This project is built with:
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project was originally built with Lovable and can be deployed via:
 
-## How can I deploy this project?
+1. **Lovable Platform**: Visit [Lovable Project](https://lovable.dev/projects/24259ec7-8296-4810-bded-42dfa7799071)
+2. **Custom Deployment**: Build and deploy to any static hosting service
+3. **Vercel/Netlify**: Direct GitHub integration
 
-Simply open [Lovable](https://lovable.dev/projects/24259ec7-8296-4810-bded-42dfa7799071) and click on Share -> Publish.
+## Custom Domain
 
-## Can I connect a custom domain to my Lovable project?
+To connect a custom domain, navigate to Project > Settings > Domains in Lovable.
 
-Yes, you can!
+[Setting up a custom domain guide](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This repository is integrated with the main employee portal at:
+`https://github.com/Coastal-Claims-Services/coastalclaims-employee-portal`
+
+Changes pushed here can be synced with the employee portal as needed.
+
+## License
+
+© 2025 Coastal Claims Services. All rights reserved.
