@@ -117,6 +117,16 @@ This repository is integrated with the main employee portal at:
 
 Changes pushed here can be synced with the employee portal as needed.
 
+## External Partner Onboarding Flow
+
+A complete developer reference guide for the end-to-end external partner onboarding flow is available in this repo:
+
+**See:** [`External_Partner_Onboarding_Flow.md`](External_Partner_Onboarding_Flow.md)
+
+This document covers the full pipeline: registration (Talent Partner Network) → approval (Pending Users → User Management) → permission assignment (checkbox-based) → login experience (sidebar filtering by permissions and firm association). It includes the responsibility split between portal/backend (Talha) and app/frontend (dev team).
+
+**Important:** The permission system is already built into the portal. Individual apps (Legal KPIs, etc.) do NOT need their own permission system — they just need to read the user object (role + firm) and filter data accordingly.
+
 ## License
 
 © 2025 Coastal Claims Services. All rights reserved.
